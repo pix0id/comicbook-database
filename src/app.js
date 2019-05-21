@@ -1,11 +1,13 @@
 const path = require('path')
 
+
 const express = require('express')
 const hbs = require('hbs')
+const mongoose = require('mongoose')
 
+require('./db/mongoose')
 
-const validation = require('./utils/validation')
-const comicAPI = require('./utils/comic_api')
+const Comic = require('./db/models/comic')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -23,6 +25,8 @@ hbs.registerPartials(partialsPath)
 // set static directory to serve.
 app.use(express.static(publicDirectoryPath))
 
+app.use(express.json())
+
 // Website Title
 const siteTitle = 'CBDB - Comic Book DataBase'
 
@@ -39,18 +43,16 @@ app.get('/', (req, res) => {
 })
 
 // add comic request
-app.get('/add-comic', (req, res) => {
-    if (!validation.addComicValidation(req.query)) {
-        return res.send({
-            message: 'Errors Found',
-            error: utils.error,
-            siteTitle
-        })
-    }
-    res.send({
-        message: 'comic added'
+app.post('/comics', (req, res) => {
+    const comic = new Comic(req.body)
+
+    comic.save().then(() => {
+        console.log(comic)
+        res.status(201).send(comic)
+
+    }).catch(e => {
+        res.status(400).send(e)
     })
-    console.log(req)
 })
 
 // 404 page - keep as last route

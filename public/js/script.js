@@ -11,7 +11,9 @@ addComicForm.addEventListener('submit', e => {
         }
     })
 
-    axios.post('/add-comic', formData)
+    console.log(formData)
+
+    axios.post('/comics', JSON.stringify(formData))
 
     /**
      * TODO: use axios to submit formData to /add-comic

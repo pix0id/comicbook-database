@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "hbs": "^4.0.4",
-    "mongodb": "^3.2.3"
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.10"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
