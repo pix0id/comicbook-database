@@ -7,7 +7,11 @@ const mongoose = require('mongoose')
 
 require('./db/mongoose')
 
-const Comic = require('./db/models/comic')
+const Comic = require('./models/comic')
+
+// require routers
+const comicRouter = require('./routes/comics')
+const pagesRouter = require('./routes/pages')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -27,41 +31,9 @@ app.use(express.static(publicDirectoryPath))
 
 app.use(express.json())
 
-// Website Title
-const siteTitle = 'CBDB - Comic Book DataBase'
-
-/**
- * START ROUTES
- */
-
-// index
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'CBDB',
-        siteTitle
-    })
-})
-
-// add comic request
-app.post('/comics', (req, res) => {
-    const comic = new Comic(req.body)
-
-    comic.save().then(() => {
-        console.log(comic)
-        res.status(201).send(comic)
-
-    }).catch(e => {
-        res.status(400).send(e)
-    })
-})
-
-// 404 page - keep as last route
-app.get('*', (req, res) => {
-    res.render('404', {
-        title: '404',
-        errorMessage: 'Page not found.'
-    })
-})
+// set Routes
+app.use(comicRouter)
+app.use(pagesRouter)
 
 
 app.listen(port, () => {
