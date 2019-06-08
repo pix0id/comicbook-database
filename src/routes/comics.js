@@ -39,4 +39,12 @@ router.get('/comics/:id', async(req, res) => {
     }
 })
 
+router.delete('/comics/:id', async(req, res) => {
+    try {
+        await Comic.findByIdAndRemove(req.params.id)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
 module.exports = router
