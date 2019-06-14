@@ -6,14 +6,15 @@ axios.get('/comics').then(data => {
     const comics = data.data
 
     comics.forEach((comic) => {
-        let html = `<div class="comic-info" id="${comic._id}">
-                <span class="comic-title">${comic.title ? comic.title : ''}</span>
-                <span class="comic-read">${comic.read ? comic.read : 'no'}</span>
-                <span class="comic-issue">${comic.issue ? comic.issue : ''}</span>
-                <span class="comic-publisher">${comic.publisher ? comic.publisher : ''}</span>
-                <span class="comic-category">${comic.category ? comic.category : ''}</span>
-                <span class="comic-delete"><a href="" data-id="${comic._id}" class="delete-comic">Delete</a></span>
-            </div>`
+        let html = `<tr class="comic-info" id="${comic._id}">
+            <td class="comic-issue">${comic.issue ? comic.issue : ''}</td>    
+            <td class="comic-title">${comic.title ? comic.title : ''}</td>
+            <td class="comic-publisher">${comic.publisher ? comic.publisher : ''}</td>
+            <td class="comic-category">${comic.category ? comic.category : ''}</td>
+            <td class="comic-read">${comic.read ? 'yes' : 'no'}</td>
+            <td class="comic-delete"><a href="" data-id="${comic._id}" class="delete-comic">Delete</a></td>
+            </tr>`
+
         comicList.innerHTML += html
     })
 })
@@ -24,8 +25,14 @@ addComicForm.addEventListener('submit', e => {
     let formData = {}
 
     addComicForm.querySelectorAll('input').forEach(el => {
-        if (el.value.length >= 1)
-            formData[`${el.name}`] = el.value
+        if (el.value.length >= 1) {
+            if (el.id === 'read') {
+                formData[`${el.name}`] = el.checked
+            } else {
+                formData[`${el.name}`] = el.value
+            }
+        }
+            
     })
 
     addComicForm.querySelectorAll('select').forEach(el => {
