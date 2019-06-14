@@ -1,0 +1,11 @@
+#add-comic {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#comic-list div {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #eee
+}
