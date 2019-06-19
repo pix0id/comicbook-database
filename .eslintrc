@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "jquery": true
+    },
+    "extends": ["airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "plugins": ["eslint-plugin-html", "prettier"],
+    "rules": {
+        "no-plusplus": "off",
+        "no-restricted-syntax": ["error"],
+        "prettier/prettier": ["error"]
+    }
+}
