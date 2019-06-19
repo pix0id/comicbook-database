@@ -1,6 +1,6 @@
 const express = require('express')
 const router = new express.Router()
-const siteTitle = 'CBDB - Comic Book DataBase',
+const siteTitle = 'CBDB - Comic Book DataBase'
 const title = 'CBDB'
 
 /**
