@@ -1,6 +1,7 @@
 const express = require('express')
 const router = new express.Router()
-const siteTitle = 'CBDB - Comic Book DataBase'
+const siteTitle = 'CBDB - Comic Book DataBase',
+const title = 'CBDB'
 
 /**
  * START ROUTES
@@ -9,11 +10,17 @@ const siteTitle = 'CBDB - Comic Book DataBase'
 // index
 router.get('/', (req, res) => {
     res.render('index', {
-        title: 'CBDB',
+        title,
         siteTitle
     })
 })
 
+router.get('/collection', (req, res) => {
+    res.render('collection', {
+        title,
+        siteTitle
+    })
+})
 
 // 404 page - keep as last route
 router.get('*', (req, res) => {
