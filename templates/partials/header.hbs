@@ -2,35 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{!-- Materialize Icon Font --}}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.min.css">
+    {{!-- Custom Styles --}}
     <link rel="stylesheet" href="css/styles.css">
     <title>{{siteTitle}}</title>
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">{{ title }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item" id="home-link">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item" id="collection-link">
-                    <a class="nav-link" href="/collection">Collection</a>
-                </li>
-                <li class="nav-item" id="account-link">
-                    <a class="nav-link disabled" href="/account">Account</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">{{ title }}</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/collection">Collection</a></li>
+                    <li><a class="disabled" href="/account">Account</a></li>
+                </ul>
 
-<div class="container">
+                <ul class="sidenav" id="mobile-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/collection">Collection</a></li>
+                    <li><a class="disabled" href="/account">Account</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">

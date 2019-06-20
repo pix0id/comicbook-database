@@ -12,6 +12,8 @@
     "plugins": ["eslint-plugin-html", "prettier"],
     "rules": {
         "no-plusplus": "off",
+        "no-underscore-dangle": "off",
+        "no-undef": "warn",
         "no-restricted-syntax": ["error"],
         "prettier/prettier": ["error"]
     }

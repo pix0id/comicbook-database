@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-underscore-dangle */
 ;(() => {
     class Comics {
         constructor() {
@@ -13,6 +12,12 @@
         }
 
         bindEvents() {
+            document.addEventListener('DOMContentLoaded', () => {
+                const elems = document.querySelectorAll('.sidenav')
+                // eslint-disable-next-line no-unused-vars
+                const instances = M.Sidenav.init(elems)
+            })
+
             if (this.addComicForm) {
                 this.addComicForm.addEventListener('submit', e => {
                     e.preventDefault()
@@ -67,9 +72,10 @@
             axios
                 .get('/comics')
                 .then(res => {
+                    // TODO: Change all of this to use handlebars (once I get a better understanding of it..)
                     this.comics = res.data
 
-                    // TODO: Possibly move this to a different function, incase just fetching the data alone is needed.
+                    // TODO: Possibly move this to a different function, in case just fetching the data alone is needed.
                     this.comicList.innerHTML = ''
 
                     this.comics.forEach(comic => {
