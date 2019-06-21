@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s3">
+            <div class="input-field col s3">
                 <select name="category" id="category">
-                    <option value="">Select...</option>
+                    <option value="" disabled selected>Select a Category</option>
                     <option value="Single Issue">Single Issue</option>
                     <option value="Collection">Collection</option>
                     <option value="Graphic Novel">Graphic Novel</option>
@@ -25,8 +25,10 @@
         </div>
         <div class="row">
             <div class="col s6">
-                <input type="checkbox" id="read" name="read">
-                <label for="read">Have you read this issue yet?</label>
+                <label>
+                    <input type="checkbox" name="read" id="read">
+                    <span>Have you read this issue yet?</span>
+                </label>
             </div>
         </div>
         <button type="submit">Submit</button>

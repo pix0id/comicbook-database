@@ -16,13 +16,15 @@
                 const sideNavEls = document.querySelectorAll('.sidenav')
                 const modalEls = document.querySelectorAll('.modal')
                 const FABEls = document.querySelectorAll('.fixed-action-btn')
-
+                const selectEls = document.querySelectorAll('select')
                 // eslint-disable-next-line no-unused-vars
                 const instances = M.Sidenav.init(sideNavEls)
                 // eslint-disable-next-line no-unused-vars
                 const modalInstances = M.Modal.init(modalEls)
                 // eslint-disable-next-line no-unused-vars
                 const FABInstances = M.Modal.init(FABEls)
+                // eslint-disable-next-line no-unused-vars
+                const selectInstances = M.FormSelect.init(selectEls)
             })
 
             if (this.addComicForm) {
