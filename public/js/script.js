@@ -13,9 +13,16 @@
 
         bindEvents() {
             document.addEventListener('DOMContentLoaded', () => {
-                const elems = document.querySelectorAll('.sidenav')
+                const sideNavEls = document.querySelectorAll('.sidenav')
+                const modalEls = document.querySelectorAll('.modal')
+                const FABEls = document.querySelectorAll('.fixed-action-btn')
+
                 // eslint-disable-next-line no-unused-vars
-                const instances = M.Sidenav.init(elems)
+                const instances = M.Sidenav.init(sideNavEls)
+                // eslint-disable-next-line no-unused-vars
+                const modalInstances = M.Modal.init(modalEls)
+                // eslint-disable-next-line no-unused-vars
+                const FABInstances = M.Modal.init(FABEls)
             })
 
             if (this.addComicForm) {
