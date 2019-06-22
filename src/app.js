@@ -1,13 +1,9 @@
 const path = require('path')
 
-
 const express = require('express')
 const hbs = require('hbs')
-const mongoose = require('mongoose')
 
 require('./db/mongoose')
-
-const Comic = require('./models/comic')
 
 // require routers
 const comicRouter = require('./routes/comics')
@@ -35,7 +31,7 @@ app.use(express.json())
 app.use(comicRouter)
 app.use(pagesRouter)
 
-
 app.listen(port, () => {
+    // eslint-disable-next-line no-console
     console.log(`Server is up on port ${port}`)
 })

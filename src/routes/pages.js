@@ -1,4 +1,5 @@
 const express = require('express')
+
 const router = new express.Router()
 const siteTitle = 'CBDB - Comic Book DataBase'
 const title = 'CBDB'
@@ -11,14 +12,14 @@ const title = 'CBDB'
 router.get('/', (req, res) => {
     res.render('index', {
         title,
-        siteTitle
+        siteTitle,
     })
 })
 
 router.get('/collection', (req, res) => {
     res.render('collection', {
         title,
-        siteTitle
+        siteTitle,
     })
 })
 
@@ -26,7 +27,7 @@ router.get('/collection', (req, res) => {
 router.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        errorMessage: 'Page not found.'
+        errorMessage: 'Page not found.',
     })
 })
 

@@ -4,23 +4,23 @@ const Comics = mongoose.model('Comics', {
     title: {
         type: String,
         trim: true,
-        required: true
+        required: true,
     },
     issue: {
         type: String,
         trim: true,
-        required: true
+        required: true,
     },
     category: {
-        type: String
+        type: String,
     },
     publisher: {
-        type: String
+        type: String,
     },
     read: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+    },
 })
 
 module.exports = Comics

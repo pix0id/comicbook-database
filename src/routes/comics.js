@@ -1,5 +1,6 @@
 const express = require('express')
 const Comic = require('../models/comic')
+
 const router = new express.Router()
 
 // create a comic
@@ -14,7 +15,7 @@ router.post('/comics', async (req, res) => {
 })
 
 // get all comics
-router.get('/comics', async(req, res) => {
+router.get('/comics', async (req, res) => {
     try {
         const comics = await Comic.find({})
         res.send(comics)
@@ -24,22 +25,23 @@ router.get('/comics', async(req, res) => {
 })
 
 // get single comic
-router.get('/comics/:id', async(req, res) => {
+router.get('/comics/:id', async (req, res) => {
     try {
         const _id = req.params.id
 
-        const comic = await Comic.find({id: _id})
-        
+        const comic = await Comic.find({ id: _id })
+
         if (!comic) {
             return res.status(404).send()
         }
         res.send(comic)
+        return true
     } catch (e) {
         res.status(500).send(e)
     }
 })
 
-router.delete('/comics/:id', async(req, res) => {
+router.delete('/comics/:id', async (req, res) => {
     try {
         await Comic.findByIdAndRemove(req.params.id)
     } catch (e) {
