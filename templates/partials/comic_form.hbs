@@ -1,11 +1,17 @@
 <div class="container">
     <form id="add-comic">
         <div class="row">
-            <div class="col s3">
+            <div class="input-field col s2">
                 <input type="text" id="issue-number" name="issue" placeholder="Issue">
             </div>
-            <div class="col s7">
+            <div class="input-field col s7">
                 <input type="text" id="comic-title" name="title" placeholder="Title">
+            </div>
+            <div class="col s2 input-field">
+                <label>
+                    <input type="checkbox" name="read" id="read">
+                    <span>Read</span>
+                </label>
             </div>
         </div>
         <div class="row">
@@ -19,17 +25,18 @@
                     <option value="Omnibus">Omnibus</option>
                 </select>
             </div>
-            <div class="col s3">
+            <div class="input-field col s3">
                 <input type="text" id="publisher" name="publisher" placeholder="Publisher">
+            </div>
+            <div class="input-field col s3">
+                <input type="text" id="artist" name="artist" placeholder="Artist">
+            </div>
+            <div class="input-field col s3">
+                <input type="text" id="writer" name="writer" placeholder="Writer">
             </div>
         </div>
         <div class="row">
-            <div class="col s6">
-                <label>
-                    <input type="checkbox" name="read" id="read">
-                    <span>Have you read this issue yet?</span>
-                </label>
-            </div>
+            
         </div>
         <button type="submit">Submit</button>
     </form>

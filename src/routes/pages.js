@@ -23,6 +23,13 @@ router.get('/collection', (req, res) => {
     })
 })
 
+router.get('/add-comic', (req, res) => {
+    res.render('add-comic', {
+        title,
+        siteTitle,
+    })
+})
+
 // 404 page - keep as last route
 router.get('*', (req, res) => {
     res.render('404', {

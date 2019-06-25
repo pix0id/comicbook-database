@@ -52,7 +52,6 @@
                         .post('/comics', this.formData)
                         .then(res => {
                             console.log(res)
-                            this.getComics()
                         })
                         .catch(err => {
                             // TODO: Replace conlog with modal or small alert.

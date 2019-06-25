@@ -13,9 +13,19 @@ const Comics = mongoose.model('Comics', {
     },
     category: {
         type: String,
+        trim: true,
     },
     publisher: {
         type: String,
+        trim: true,
+    },
+    artist: {
+        type: String,
+        trim: true,
+    },
+    writer: {
+        type: String,
+        trim: true,
     },
     read: {
         type: Boolean,
